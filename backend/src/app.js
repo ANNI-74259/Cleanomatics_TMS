@@ -13,6 +13,8 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 app.use(helmet()); // safe HTTP headers
 app.use(cors({ origin: env.clientUrls })); // only our frontend can call the API
 app.use(morgan(env.nodeEnv === 'production' ? 'combined' : 'dev')); // request logs

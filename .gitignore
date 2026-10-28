@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Environment files (secrets). Only .env.example is committed.
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

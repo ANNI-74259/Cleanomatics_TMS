@@ -1,0 +1,66 @@
+/* Colors for both themes. Light is the default, dark overrides it.
+   The layout never changes between themes, only these variables. */
+:root {
+  --font: 'Urbanist', system-ui, sans-serif;
+  --radius-card: 28px;
+
+  --bg: linear-gradient(135deg, #e9eaf4, #f4f4fa);
+  --card: rgba(247, 247, 251, 0.85);
+  --card-solid: #f7f7fb;
+  --board: rgba(247, 247, 251, 0.85);
+  --kcard: #ffffff;
+  --column: #eceef8;
+  --rail: #f7f7fb;
+  --input: #ffffff;
+  --active: #ffffff;
+  --chip: #ecedf6;
+
+  --text: #2b2b31;
+  --text-soft: #5a5a66;
+  --muted: #8a8a9a;
+  --btn: #37373d;
+  --btn-text: #ffffff;
+  --accent: #6f86f2;
+  --accent-soft: #dce3fb;
+  --success: #4e9a3f;
+  --success-soft: #d8f0d0;
+  --warning: #f5a623;
+  --danger: #d64545;
+  --border: #d5d6e3;
+  --shadow: 0 8px 30px rgba(120, 130, 190, 0.08);
+
+  --low: #4e9a3f;
+  --medium: #b8860b;
+  --high: #d64545;
+}
+
+[data-theme='dark'] {
+  --bg: #0f1215;
+  --card: #24272a;
+  --card-solid: #24272a;
+  --board: #15181b;
+  --kcard: #24272a;
+  --column: #1c1f22;
+  --rail: #181b1b;
+  --input: #111315;
+  --active: #2a2d2d;
+  --chip: #3a3d42;
+
+  --text: #ffffff;
+  --text-soft: #e4e6e7;
+  --muted: #888a8b;
+  --btn: #454b4b;
+  --btn-text: #ffffff;
+  --accent: #a8d5ff;
+  --accent-soft: rgba(168, 213, 255, 0.16);
+  --success: #aafe9b;
+  --success-soft: rgba(170, 254, 155, 0.14);
+  --warning: #f5a623;
+  --danger: #f9999f;
+  --border: #2e3236;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+
+  --low: #b7e4cf;
+  --medium: #fdef9f;
+  --high: #f9999f;
+}

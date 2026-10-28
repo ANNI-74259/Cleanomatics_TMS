@@ -5,7 +5,16 @@ import { validateTask } from '../../utils/validators';
 import { STATUSES, PRIORITIES } from '../../utils/constants';
 import Button from '../ui/Button';
 
+// Today's date as YYYY-MM-DD in the user's local time (used as the earliest allowed due date)
+function getTodayString() {
+  const now = new Date();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${now.getFullYear()}-${month}-${day}`;
+}
+
 export default function TaskForm({ initialValues = {}, onSubmit, submitLabel = 'Save', onCancel }) {
+  const today = getTodayString();
   const [values, setValues] = useState({
     title: initialValues.title ?? '',
     description: initialValues.description ?? '',
@@ -29,6 +38,12 @@ export default function TaskForm({ initialValues = {}, onSubmit, submitLabel = '
 
     // 1. check in the browser first
     const foundErrors = validateTask(values);
+
+    // a past date is not allowed. (An old task may keep its original date if it is unchanged.)
+    if (values.dueDate && values.dueDate < today && values.dueDate !== initialValues.dueDate) {
+      foundErrors.dueDate = 'Due date cannot be in the past';
+    }
+
     if (Object.keys(foundErrors).length > 0) {
       setErrors(foundErrors);
       return;
@@ -123,6 +138,7 @@ export default function TaskForm({ initialValues = {}, onSubmit, submitLabel = '
             id="dueDate"
             name="dueDate"
             type="date"
+            min={today}
             className={inputClass('dueDate')}
             value={values.dueDate}
             onChange={handleChange}
